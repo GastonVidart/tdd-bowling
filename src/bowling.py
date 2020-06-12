@@ -1,2 +1,2 @@
 def play_bowling(current_score, rolls, pins):
-    return 0
+    return current_score + rolls * pins
