@@ -12,6 +12,7 @@ def play_bowling(current_score, rolls, pins):
     for tiro in range(rolls):
         # para cada tiro
         current_score += pins
+
         if flagSpare:
             # hay que sumar el bonus de media chuza
             current_score += pins
@@ -19,19 +20,15 @@ def play_bowling(current_score, rolls, pins):
 
         if flagStrike != 0:
             current_score += pins
-            if flagStrike == 1:
-                flagStrike = 2
-            else:
-                flagStrike = 0
+            flagStrike = (flagStrike + 1) % 3
 
         if esPrimerTiro:
             # del juego actual
-            esPrimerTiro = False
-            pinesTirados = pins
-            if pins==10:
-                flagStrike=1
-                esPrimerTiro = True
-                pinesTirados = 0
+            if pins == 10:
+                flagStrike = 1
+            else:
+                esPrimerTiro = False
+                pinesTirados = pins
         else:
             # segundo tiro del juego actual
             pinesTirados += pins
