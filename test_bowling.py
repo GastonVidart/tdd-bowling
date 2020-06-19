@@ -18,3 +18,9 @@ def test_spare():
     result, terminado = play_bowling(current_score = result, rolls = 18, pins = 1)
     assert result == 29 
     assert terminado
+
+def test_strike():
+    result, terminado = play_bowling(current_score = 0, rolls = 1, pins = 10)
+    result, terminado = play_bowling(current_score = result, rolls = 18, pins = 1)
+    assert result == 30
+    assert terminado
