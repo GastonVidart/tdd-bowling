@@ -40,6 +40,10 @@ def test_mezcla_strike_spare():
     # spare
     result, terminado = play_bowling(current_score=result, rolls=1, pins=4)    
     result, terminado = play_bowling(current_score=result, rolls=1, pins=6)        
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=7)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=2)
+    assert result == 42
+        
     result, terminado = play_bowling(current_score=result, rolls=6, pins=3)
     assert result == 60    
 
