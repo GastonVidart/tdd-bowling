@@ -43,7 +43,7 @@ def test_mezcla_strike_spare():
     result, terminado = play_bowling(current_score=result, rolls=1, pins=7)
     result, terminado = play_bowling(current_score=result, rolls=1, pins=2)
     assert result == 42
-        
+
     result, terminado = play_bowling(current_score=result, rolls=6, pins=3)
     assert result == 60    
 
@@ -55,4 +55,41 @@ def test_mezcla_strike_spare():
 
     result, terminado = play_bowling(current_score=result, rolls=2, pins=4)
     assert result == 96
+    assert terminado
+
+def test_ronda_10_all_strike():    
+    result, terminado = play_bowling(current_score=0, rolls=18, pins=0)
+    result, terminado = play_bowling(current_score=result, rolls=3, pins=10)        
+    assert result == 30  
+    assert terminado
+
+def test_ronda_10_strike_spare():    
+    result, terminado = play_bowling(current_score=0, rolls=18, pins=0)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=10)        
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=4)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=6)
+    assert result == 20
+    assert terminado  
+
+def test_ronda_10_strike():    
+    result, terminado = play_bowling(current_score=0, rolls=18, pins=0)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=10)
+    result, terminado = play_bowling(current_score=result, rolls=2, pins=4)    
+    assert result == 18
+    assert terminado
+
+def test_ronda_10_spare_strike():    
+    result, terminado = play_bowling(current_score=0, rolls=18, pins=0)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=4)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=6)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=10)
+    assert result == 20
+    assert terminado
+
+def test_ronda_10_spare():    
+    result, terminado = play_bowling(current_score=0, rolls=18, pins=0)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=4)
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=6)    
+    result, terminado = play_bowling(current_score=result, rolls=1, pins=5)    
+    assert result == 15
     assert terminado
