@@ -15,63 +15,39 @@ def play_bowling(current_score, rolls, pins):
 
     for tiro in range(rolls):
         # para cada tiro
-
         rondaFinal = rondaActual == 11
-        if rondaFinal:
-            #la ronda final se computa de manera diferente a las demas
-            current_score += ronda10(pins)
-        else:
+        # la ronda final se computa de manera diferente a las demas
+        if flagSpare:
+            # hay que sumar el bonus de media chuza
             current_score += pins
-            if flagSpare:
-                # hay que sumar el bonus de media chuza
-                current_score += pins
-                flagSpare = False
-
-            if flagStrike != 0:
-                current_score += pins
-                flagStrike = (flagStrike + 1) % 3
-
+            flagSpare = False
+        if flagStrike != 0:
+            #Si tiene bonus de chuza
+            current_score += pins
+            flagStrike = (flagStrike + 1) % 3
+        if not rondaFinal:
+            #juego normal
+            current_score += pins
             if esPrimerTiro:
-                # del juego actual
-                # Detecta si es el primer tiro de la ultima ronda
+                # de la ronda actual
                 if pins == 10:
                     flagStrike = 1
                     rondaActual += 1
-                    # La ronda se termina porque hizo una chuza
+                    # La ronda avanza porque se hizo una chuza
                 else:
                     esPrimerTiro = False
                     pinesTirados = pins
             else:
-                # segundo tiro del juego actual
+                # segundo tiro de la ronda actual
                 pinesTirados += pins
                 if pinesTirados == 10:
                     # completo media chuza
                     terminado = False
                     flagSpare = True
+                elif pinesTirados>10:
+                    print("Tiro incorrecto Fin del Juego!")
                 pinesTirados = 0
                 esPrimerTiro = True
                 rondaActual += 1
 
     return current_score, terminado
-
-
-def ronda10(pins):
-    # modulo que se encarga de computar los ultimos 2 tiros
-    global pinesTirados, esPrimerTiro, flagSpare, flagStrike, rondaActual, rondaFinal
-    if flagSpare:
-        score = pins
-        flagSpare = False
-
-    if flagStrike != 0:
-        score = pins
-        flagStrike = (flagStrike + 1) % 3
-
-    aux = pinesTirados+pins
-    if aux > 10:
-        #si esta haciendo una media chuza, se controla que no supere el limite
-        print("Error en cant pines", pinesTirados)
-    elif pins < 10:
-        #si no es chuza
-        pinesTirados = aux
-
-    return score
