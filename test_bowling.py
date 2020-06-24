@@ -93,3 +93,8 @@ def test_ronda_10_spare():
     result, terminado = play_bowling(current_score=result, rolls=1, pins=5)    
     assert result == 15
     assert terminado
+
+def test_all_strike():
+    result, terminado = play_bowling(current_score=-1, rolls=12, pins=10)
+    assert result == 300 
+    assert terminado
