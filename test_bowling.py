@@ -134,7 +134,7 @@ def test_pins():
     assert result == -2
     assert not terminado
 
-# Octavo Ciclo
+# Octavo Ciclo 3
 def test_rondas():
     # test maximas rondas posibles hasta 10, test con 22 tiros = 11 rondas
     result, terminado = play_bowling(current_score=-1, rolls=22, pins=5)
