@@ -18,11 +18,12 @@ El siguiente ejemplo muestra un ejemplo de un ciclo con sus 3 etapas y correspon
 
 1. **ROJO**: Se plantearon los casos de test para distintos juegos cuyo resultado en la última ronda llevan a necesitar un 3<sup>er</sup> tiro en la ronda N° 10. Al ejecutar el test se observa que ninguno pudo ejecutarse correctamente, por lo que se necesita desarrollar la nueva funcionalidad.
 
-*imagen
+![Test Rojo 1](img/test_rojo_1.png)
+![Test Rojo 2](img/test_rojo_2.png)
 
 2. **VERDE**: Se modifico en `bowling.py` la función de `play_bowling(current_score, rolls, pins)` y se agrego una nueva función llamada `ronda10(pins)` que asistía en resolver la nueva funcionalidad. Estos cambios permitieron resolver los tests planteados en la etapa anterior.
 
-*imagen
+![Test Verde](img/test_verde.png)
 
 3. **REFACTOR**: Se incorporo la función `ronda10(pins)` dentro de la función ya existente `play_bowling(current_score, rolls, pins)`.
 
