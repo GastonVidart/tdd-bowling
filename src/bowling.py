@@ -1,5 +1,6 @@
 def play_bowling(current_score, rolls, pins):
     # modulo para realizar una jugada
+
     global pinesTirados, esPrimerTiro, flagSpare, flagStrike, rondaActual, rondaFinal, strikeActivos    
     if current_score == -1:
         # si es el inicio del juego, se reinician las variables
@@ -34,7 +35,6 @@ def play_bowling(current_score, rolls, pins):
             #  si esta en la ronda final, y no hay flags activos, debe terminar el juego
             print("Se a hecho un juego inváldio, se jugaron mas rondas de las permitidas")
             return -2, False
-
         # la ronda final se computa de manera diferente a las demas
         if flagSpare:
             # hay que sumar el bonus de media chuza
@@ -78,5 +78,4 @@ def play_bowling(current_score, rolls, pins):
                 esPrimerTiro = True
                 rondaActual += 1
         i += 1
-
     return current_score, True
