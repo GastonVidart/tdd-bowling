@@ -28,87 +28,135 @@ El siguiente ejemplo muestra un ejemplo de un ciclo con sus 3 etapas y correspon
 
 ## Casos de Test
 
-Para cada ciclo se plantearon distintos casos de test que llevaron al desarrollo de dinstintas funcionalidades en la aplicación. Los casos y las imagenes fueron generadas con el sitio web Bowling Genius. Los primeros dos ciclos fueron implementados en el repositorio base.
+Para cada ciclo se plantearon distintos casos de test que llevaron al desarrollo de dinstintas funcionalidades en la aplicación (cada una desarrollada en su propia *branch*). Los casos y las imagenes fueron generadas con el sitio web Bowling Genius. Los primeros dos ciclos fueron implementados en el repositorio base.
 
 ### 1. Primer Ciclo
 
 ```python
-def test_all_gutter
+def test_all_gutter():
 ```
 
 Se establece la primer funcionalidad, de un juego de 20 tiros y 0 pines tirados en cada uno.
 
-*imagen
+![Primer Ciclo](img/test_primer_ciclo.png)
 
 ### 2. Segundo Ciclo
 
 ```python
-def test_all_ones
+def test_all_ones():
 ```
 
 Un juego de 20 tiros y 1 pin tirado en cada uno.
 
-*imagen
+![Segundo Ciclo](img/test_segundo_ciclo.png)
 
 ### 3. Tercer Ciclo
 
 ```python
-def test_spare
+def test_spare():
 ```
 
 Un juego donde los primeros 2 tiros producen una *media chuza* (o *spare*) y 18 tiros siguientes con 1 pint tirado en cada uno.
 
-*imagen
+![Tercer Ciclo](img/test_tercer_ciclo.png)
 
 ### 4. Cuarto Ciclo
 
 ```python
-def test_strike
+def test_strike():
 ```
 
 Un juego donde el primer tiro produce una *chuza* (o *strike*) y 18 tiros siguientes con 1 pint tirado en cada uno.
 
-*imagen
+![Cuarto Ciclo](img/test_cuarto_ciclo.png)
 
 ### 5. Quinto Ciclo
 
 ```python
-def test_mezcla_strike_spare
+def test_mezcla_strike_spare():
 ```
 
 Un juego de 20 tiros con valores varios en cada uno, con una *media_chuza* en la ronda 3 y una *chuza* en la ronda 8.
 
-*imagen
+![Quinto Ciclo](img/test_quinto_ciclo.png)
 
 ### 6. Sexto Ciclo
 
 ```python
-def test_mezcla_strike_spare
+def test_ronda_10_all_strike():
+def test_ronda_10_strike_spare():
+def test_ronda_10_strike():
+def test_ronda_10_spare_strike():
+def test_ronda_10_spare():
 ```
 
 5 juegos donde los primeros 18 tiros tiran 0 pines, y los ultimos 3 tiros prueban distintas combinaciones (en cada juego) de *medias_chuzas* y una *chuzas* para analizar todos los casos posibles al final del juego.
 
-*imagen
+*Chuza* en cada tiro
+![Sexto Ciclo 1](img/test_sexto_ciclo_1.png)
+
+*Chuza* y *media chuza*
+![Sexto Ciclo 2](img/test_sexto_ciclo_2.png)
+
+*Chuza* y valores comunes
+![Sexto Ciclo 3](img/test_sexto_ciclo_3.png)
+
+*Media chuza* y *chuza* 
+![Sexto Ciclo 4](img/test_sexto_ciclo_4.png)
+
+*Media chuza* y valor común 
+![Sexto Ciclo 5](img/test_sexto_ciclo_5.png)
 
 ### 7. Séptimo Ciclo
 
 ```python
-def test_all_strike
+def test_all_strike():
 ```
 
 Un juego de 12 tiros con 10 pines tirados en cada uno. Esto lleva a computar situaciones con multiples *chuzas* activas en un mismo momento.
 
-*imagen
+![Séptimo Ciclo](img/test_septimo_ciclo.png)
 
 ### 8. Octavo Ciclo
 
 ```python
-def test_all_strike
+def test_score():
+def test_pins():
+def test_rondas():
 ```
 
-Un juego de 12 tiros con 10 pines tirados en cada uno. Esto lleva a computar situaciones con multiples *chuzas* activas en un mismo momento.
+Se prueban tiros con valores de máximo y mínimo puntaje permitido, máximo y mínimo de pines en un tiro, máximo en dos tiros de una misma ronda y valores máximos y mínimos en cantidad de tiros.
 
-*imagen
+## Versiones
+
+### v0.1 *"Inicio del Trabajo"*
+
+* Incorpora el primer ciclo de test.
+* Permite partidas de todos 0.
+
+### v0.2 *"Actualización del Proyecto"*
+
+* Incorpora el segundo ciclo de test.
+* Permite partidas de todos 0 y 1.
+
+### v0.3 *"Implementación Juego Normal"*
+
+* Incorpora el tercer, cuarto y quinto ciclo.
+* Permite cualquier partida que no termine con una *chuza* o *media chuza* en la ronda 10.
+
+### v1.0 *"Versión Alpha"*
+
+* Incorpora el sexto y séptimo ciclo. 
+* Permite cualquier tipo de juego válido.
+
+### v1.1 *"Entrega Final"*
+
+* Incorpora el octavo ciclo y el README.
+* Permite cualquier tipo de juego y devuelve un error si algun parámetro no es válido. 
+* Se incorpora el README como informe del trabajo realizado.
 
 ## Conclusión 
-Con este trabajo se pudo aprender la metodología propuesta en la materia, además de la metodolgía...
+
+Con este trabajo se pudo aprender la metodología de TTD propuesta en la materia, con la aplicación del flujo de trabajo GitFlow. El uso de TDD fue satisfactorio, porque nos permitía ir desarrollando la aplicación por medio de casos de test que representaban las funcionalidades del sistema, en vez de pensar desde el comienzo en una solución completa para el problema. De esta manera, la forma de trabajar se sintió más rápida, estructurada, y permitió que el código generado este ordenado y comprensible. Aún así, por estar acostumbrados a pensar la solución completa por partes, se nos hizo complicado al principio entender la forma de trabajo, porque el dominio era bastante simple. Una vez que llegamos a las partes finales, si nos ayudó porque cada feature aumentaba de complejidad y pensar en su solución se hizo más fácil.
+
+En cuanto a la metodología de GitFlow, fue muy interesante, porque a medida que fuimos avanzando en el trabajo, pudimos ir registrando los cambios que le fuimos haciendo al código, lo que nos permitó guiarnos sobre que punto nos habíamos quedado al retomar el desarrollo. También nos ayudó a completar nuestros conocimientos sobre el uso de Git, porque ya lo utilizabamos, pero sin las convenciones para crear branchs, para escribir los nombres de commits, creación de pull requests. Y como consideración a futuro, o para los que vean el repositorio, pueden ser capaces de observar cómo el trabajo fue evolucionando.
