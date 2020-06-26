@@ -14,9 +14,30 @@ def play_bowling(current_score, rolls, pins):
         current_score = 0
         strikeActivos = 0
 
+    elif current_score > 300 or current_score < -2:
+        # se verifica un puntaje válido
+        print("Puntaje ingresado inválido")
+        return -2, False
+
+    if pins > 10 or pins < 0:
+        # se verifica que no se tiren mas de 10 pines o un valor negativo
+        print("Pines tirados inválido")
+        return -2, False
+    
+    if rolls < 0:
+        print("Se ingresó un tiro inválido")
+        return -2, False
+
     for tiro in range(rolls):
-        # para cada tiro
+        # para cada tiro     
+
         rondaFinal = rondaActual == 11
+        if rondaFinal and not flagSpare and not flagStrike:
+            #  se verifica que el tiro se pueda realizar
+            #  si esta en la ronda final, y no hay flags activos, debe terminar el juego
+            print ("Se a hecho un juego inváldio, se jugaron mas rondas de las permitidas")
+            return -2, False
+        
         # la ronda final se computa de manera diferente a las demas
         if flagSpare:
             # hay que sumar el bonus de media chuza
@@ -54,7 +75,9 @@ def play_bowling(current_score, rolls, pins):
                     terminado = False
                     flagSpare = True
                 elif pinesTirados > 10:
-                    print("Tiro incorrecto Fin del Juego!")
+                    # no se pueden acumular mas de 10 pines tirados
+                    print("La cantidad de pines tirados es incorrecta")
+                    return -2, False
                 pinesTirados = 0
                 esPrimerTiro = True
                 rondaActual += 1

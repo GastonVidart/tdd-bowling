@@ -112,26 +112,28 @@ def test_score():
     assert result == -2
     assert not terminado
 
-    #test minimo puntaje posible hasta -2, test con -3
+    # test minimo puntaje posible hasta -2, test con -3
     result, terminado = play_bowling(current_score=-3, rolls=1, pins=7)
     assert result == -2
     assert not terminado
 
+
 def test_pins():
-    # test maximos pines tirados hasta 10, test con 11
+    # test maximos pins tirados hasta 10, test con 11
     result, terminado = play_bowling(current_score=-1, rolls=1, pins=11)
     assert result == -2
     assert not terminado
 
-    # test minimos pines tirados hasta 0, test con -1
+    # test minimos pins tirados hasta 0, test con -1
     result, terminado = play_bowling(current_score=-1, rolls=1, pins=-1)
     assert result == -2
     assert not terminado
 
-    # test maximos pines tirados por ronda, test con dos tiros de 7
+    # test maximos pins tirados por ronda, test con dos tiros de 7
     result, terminado = play_bowling(current_score=-1, rolls=2, pins=7)
     assert result == -2
     assert not terminado
+
 
 def test_rondas():
     # test maximas rondas posibles hasta 10, test con 22 tiros = 11 rondas
